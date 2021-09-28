@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "9e2712db-b883-478f-9e66-f8cabc2ca6ba",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Scripts Copy",
+			"item": [
+				{
+					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests['Validate email response'] = responseBody.has(data.email);\r",
+									"tests['Validate password response'] = responseBody.has(data.password);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}{{endpoint}}",
+							"host": [
+								"{{base}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "api/register"
+		},
+		{
+			"key": "email",
+			"value": "eve.holt@reqres.inp"
+		},
+		{
+			"key": "password",
+			"value": "pistol"
+		},
+		{
+			"key": "base",
+			"value": "https://reqres.in/api/"
+		}
+	]
+}
